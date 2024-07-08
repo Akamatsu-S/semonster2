@@ -5,7 +5,6 @@ package org.example;
 
 import java.util.LinkedList;
 import java.util.Random;
-import java.util.random.*;
 
 public class App {
     final static Random random = new Random();
