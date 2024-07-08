@@ -14,7 +14,7 @@ public class Player {
     }
 
     public void drawMonsters() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < this.randomNumberList.size()/2; i++) {
             this.monsterDeck.add(new Monster(this.randomNumberList.pop(), this.randomNumberList.pop()));
         }
     }
@@ -27,5 +27,9 @@ public class Player {
           sb.append(m);
         }
         return sb.toString();
+    }
+
+    public ArrayList<Monster> getMosterDeck() {
+        return this.monsterDeck;
     }
 }

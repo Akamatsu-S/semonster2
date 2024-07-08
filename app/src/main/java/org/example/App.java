@@ -3,14 +3,32 @@
  */
 package org.example;
 
+import java.util.LinkedList;
+import java.util.Random;
+import java.util.random.*;
+
 public class App {
+    final static Random random = new Random();
+    final static int maxRandomNumber = 4;// ランダムな数値の最大値(0～4)
+    
     public String getGreeting() {
         return "Hello World!";
     }
     // test
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-        Monster monster = new Monster(0, 1);
-        System.out.println(monster);
+
+        Player player = new Player(createRandomList(6),"hoge");
+        player.drawMonsters();
+        System.out.println(player);
+    }
+
+    public static LinkedList<Integer> createRandomList(int count) {
+        LinkedList<Integer> randNumList = new LinkedList<>();
+        for (int i = 0; i < count; i++) {
+            randNumList.add(random.nextInt(maxRandomNumber + 1));
+        }
+    
+        return randNumList;
     }
 }
