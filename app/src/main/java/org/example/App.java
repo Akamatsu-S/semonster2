@@ -10,5 +10,7 @@ public class App {
     // test
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
+        Monster monster = new Monster(0, 1);
+        System.out.println(monster);
     }
 }
