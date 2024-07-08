@@ -11,12 +11,18 @@ public class SpecialMonstetest {
         assertEquals("メタルスライムキング", monster.Summon(0));
 
         // 不正なnameNumを指定した場合のテスト
-        try {
-            monster.Summon(6);
-            fail();
-        } catch (IllegalArgumentException e) {
-            assertEquals("nameNumは0～5の範囲で指定してください", e.getMessage());
-        }
+    try {
+        monster.Summon(6);
+        fail();
+    } catch (IllegalArgumentException e) {
+        assertEquals("nameNumは0～5の範囲で指定してください", e.getMessage());
+    }
+    try {
+        monster.Summon(-1);
+        fail();
+    } catch (IllegalArgumentException e) {
+        assertEquals("nameNumは0～5の範囲で指定してください", e.getMessage());
+    }
 
     }
 }
