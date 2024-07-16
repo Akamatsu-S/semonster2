@@ -33,4 +33,8 @@ public class Player {
     public ArrayList<Monster> getMosterDeck() {
         return this.monsterDeck;
     }
+
+    public int showDecksize(){
+        return this.monsterDeck.size();
+    }
 }
