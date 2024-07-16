@@ -14,7 +14,7 @@ public class Monster {
     this.attackPower = calculateAttackPower();
   }
 
-  private int calculateAttackPower() {
+  public int calculateAttackPower() {
     return this.rare * this.level;
   }
 
@@ -26,6 +26,14 @@ public class Monster {
   public String Summon(int nameNum) {
     String monsters[] = { "スライム", "ドラキー", "ゴースト", "バブルスライム", "ベビーニュート", "ベビーサタン" };
     return monsters[nameNum];
+  }
+
+  public void attack() {
+    System.out.println(this.name + "の攻撃！");
+  }
+  
+  public int getLevel() {
+    return this.level;
   }
 
   @Override
