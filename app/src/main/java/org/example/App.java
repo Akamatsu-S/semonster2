@@ -11,7 +11,7 @@ public class App {
     final static int maxRandomNumber = 4;// ランダムな数値の最大値(0～4)
     
     public String getGreeting() {
-        return "Hello World!";
+        return "Hello SeMonster!";
     }
     // test
     public static void main(String[] args) {

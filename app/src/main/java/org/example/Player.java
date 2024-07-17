@@ -4,37 +4,94 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Player {
-    String name;
-    ArrayList<Monster> monsterDeck = new ArrayList<>();
-    LinkedList<Integer> randomNumberList;
+    private LinkedList<Integer> randomList; // モンスターIDのリスト
+    private String name; // プレイヤーの名前
+    private ArrayList<Monster> monsterDeck; // プレイヤーのモンスターのデッキ
 
-    Player(LinkedList<Integer> randomList, String playername){
-        this.randomNumberList = randomList;
-        this.name = playername;
+    /**
+     * コンストラクタ - プレイヤーオブジェクトを初期化
+     * 
+     * @param randomList モンスターIDのリスト
+     * @param name プレイヤーの名前
+     */
+    public Player(LinkedList<Integer> randomList, String name) {
+        this.randomList = randomList;
+        this.name = name;
+        this.monsterDeck = new ArrayList<>();
     }
 
+    /**
+     * モンスターをデッキに追加するメソッド
+     * randomListに基づいてランダムにモンスターを生成し、デッキに追加する
+     */
     public void drawMonsters() {
-        int size = this.randomNumberList.size()/2;
-        for (int i = 0; i < size; i++) {
-            this.monsterDeck.add(new Monster(this.randomNumberList.pop(), this.randomNumberList.pop()));
+        for (int id : randomList) {
+            monsterDeck.add(new Monster(id, (int)(Math.random() * 10) + 1)); // ランダムな攻撃力を持つモンスターを生成
         }
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Deck:" + this.name + "\n");
-        for (Monster m : this.monsterDeck) {
-          sb.append(m);
+    /**
+     * モンスターのデッキを取得するメソッド
+     * 
+     * @return モンスターのデッキ
+     */
+    public ArrayList<Monster> getMonsterDeck() {
+        return monsterDeck;
+    }
+
+    /**
+     * プレイヤーの名前を取得するメソッド
+     * 
+     * @return プレイヤーの名前
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * モンスターのデッキのサイズを取得するメソッド
+     * 
+     * @return モンスターのデッキのサイズ
+     */
+    public int showDecksize() {
+        return monsterDeck.size();
+    }
+
+    /**
+     * モンスターをデッキに追加するメソッド
+     * 
+     * @param monster 追加するモンスター
+     */
+    public void addMonster(Monster monster) {
+        monsterDeck.add(monster);
+    }
+
+    /**
+     * デッキのモンスターを表示するメソッド
+     * 各モンスターの情報を標準出力に表示する
+     */
+    public void showDeck() {
+        for (Monster monster : monsterDeck) {
+            // toStringメソッドを使用してMonsterオブジェクトの情報を出力
+            System.out.println(monster.toString());
         }
-        return sb.toString();
     }
 
-    public ArrayList<Monster> getMosterDeck() {
-        return this.monsterDeck;
+    /**
+     * デッキ内のすべてのモンスターのレベルを上げるメソッド
+     */
+    public void levelUpAllMonsters() {
+        for (Monster monster : monsterDeck) {
+            monster.levelUp();
+        }
     }
 
-    public int showDecksize(){
-        return this.monsterDeck.size();
+    /**
+     * デッキ内のすべてのモンスターに攻撃させるメソッド
+     */
+    public void attackWithAllMonsters() {
+        for (Monster monster : monsterDeck) {
+            monster.attack();
+        }
     }
 }
