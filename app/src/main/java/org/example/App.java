@@ -20,6 +20,9 @@ public class App {
         Player player = new Player(createRandomList(6),"hoge");
         player.drawMonsters();
         System.out.println(player);
+
+        SpecialMonster specialMonster = new SpecialMonster(0, 1);
+        System.out.println(specialMonster);
     }
 
     public static LinkedList<Integer> createRandomList(int count) {
