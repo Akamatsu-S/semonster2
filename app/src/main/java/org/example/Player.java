@@ -10,7 +10,6 @@ public class Player {
 
     /**
      * コンストラクタ - プレイヤーオブジェクトを初期化
-     * 
      * @param randomList モンスターIDのリスト
      * @param name プレイヤーの名前
      */
@@ -32,7 +31,6 @@ public class Player {
 
     /**
      * モンスターのデッキを取得するメソッド
-     * 
      * @return モンスターのデッキ
      */
     public ArrayList<Monster> getMonsterDeck() {
@@ -41,7 +39,6 @@ public class Player {
 
     /**
      * プレイヤーの名前を取得するメソッド
-     * 
      * @return プレイヤーの名前
      */
     public String getName() {
@@ -50,7 +47,6 @@ public class Player {
 
     /**
      * モンスターのデッキのサイズを取得するメソッド
-     * 
      * @return モンスターのデッキのサイズ
      */
     public int showDecksize() {
@@ -59,7 +55,6 @@ public class Player {
 
     /**
      * モンスターをデッキに追加するメソッド
-     * 
      * @param monster 追加するモンスター
      */
     public void addMonster(Monster monster) {
