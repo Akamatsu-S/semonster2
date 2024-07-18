@@ -16,6 +16,6 @@ public class PlayerTest {
         player.drawMonsters();
         ArrayList<Monster> TestDeck = new ArrayList<>();
         TestDeck.add(new Monster(0, 2));
-        assertEquals(TestDeck.toString().trim(), player.getMosterDeck().toString().trim());
+        assertEquals(TestDeck.toString().trim(), player.getMonsterDeck().toString().trim());
     }
 }
