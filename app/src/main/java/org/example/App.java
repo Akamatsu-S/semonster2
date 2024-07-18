@@ -3,31 +3,20 @@
  */
 package org.example;
 
-import java.util.LinkedList;
-import java.util.Random;
-
 public class App {
-    final static Random random = new Random();
     final static int maxRandomNumber = 4;// ランダムな数値の最大値(0～4)
-    
+
     public String getGreeting() {
-        return "Hello World!";
+        return "Hello SeMonster!";
     }
     // test
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
 
-        Player player = new Player(createRandomList(6),"hoge");
-        player.drawMonsters();
-        System.out.println(player);
-    }
+        SeMonsterGame game = new SeMonsterGame(maxRandomNumber);
+        game.addPlayer("hoge", 3);
+        game.addPlayer("fuga", 3);
 
-    public static LinkedList<Integer> createRandomList(int count) {
-        LinkedList<Integer> randNumList = new LinkedList<>();
-        for (int i = 0; i < count; i++) {
-            randNumList.add(random.nextInt(maxRandomNumber + 1));
-        }
-    
-        return randNumList;
+        game.showAllPlayersDeck();
     }
 }

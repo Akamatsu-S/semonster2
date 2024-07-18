@@ -2,33 +2,41 @@ package org.example;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Random;
 
 public class SeMonsterGame {
 
-  HashMap<String, Player> playerMap = new HashMap<>();
-  LinkedList<Integer> randomNumberList = new LinkedList<Integer>();
+    HashMap<String, Player> playerMap = new HashMap<>();
+    final static Random random = new Random();
+    int maxRandomNumber;
 
-  /**
-   * 0~4までの値がランダムに一定数格納されたLinkedLIst
-   *
-   * @param randomNumberList
-   */
-  SeMonsterGame(LinkedList<Integer> randomNumberList) {
-    this.randomNumberList = randomNumberList;
-  }
+    public SeMonsterGame(int maxRandomNumber) {
+        this.maxRandomNumber = maxRandomNumber;
+    }
 
-  /**
-   * プレイヤーを追加
-   *
-   * @param playerName
-   */
-  void addPlayer(String playerName) {
-    this.playerMap.put(playerName, new Player(randomNumberList, playerName));
-  }
+    void addPlayer(String playerName, int deckNum) {
+        this.playerMap.put(playerName, new Player(createRandomList(deckNum*2, this.maxRandomNumber), playerName));
+        Player player = this.playerMap.get(playerName);
+        player.drawMonsters();
+    }
 
-  void draw(String playerName) {
-    Player player = this.playerMap.get(playerName);
-    player.drawMonsters();
-    System.out.println(player);
-  }
+    void showPlayerDeck(String playerName) {
+        System.out.println(this.playerMap.get(playerName));
+    }
+
+    void showAllPlayersDeck() {
+        for (String key : this.playerMap.keySet()) {
+            System.out.println(this.playerMap.get(key));
+        }
+    }
+
+    public static LinkedList<Integer> createRandomList(int count, int maxRandomNumber) {
+        LinkedList<Integer> randNumList = new LinkedList<>();
+        for (int i = 0; i < count; i++) {
+            randNumList.add(random.nextInt(maxRandomNumber + 1));
+        }
+
+        return randNumList;
+    }
+
 }
