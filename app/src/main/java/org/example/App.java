@@ -16,7 +16,6 @@ public class App {
         SeMonsterGame game = new SeMonsterGame(maxRandomNumber);
         game.addPlayer("hoge", 3);
         game.addPlayer("fuga", 3);
-
         game.showAllPlayersDeck();
     }
 }

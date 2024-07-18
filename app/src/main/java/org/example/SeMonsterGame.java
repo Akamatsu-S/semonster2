@@ -15,18 +15,22 @@ public class SeMonsterGame {
     }
 
     void addPlayer(String playerName, int deckNum) {
-        this.playerMap.put(playerName, new Player(createRandomList(deckNum*2, this.maxRandomNumber), playerName));
+        this.playerMap.put(playerName, new Player(createRandomList(deckNum, this.maxRandomNumber), playerName));
         Player player = this.playerMap.get(playerName);
         player.drawMonsters();
     }
 
     void showPlayerDeck(String playerName) {
-        System.out.println(this.playerMap.get(playerName));
+        Player player = this.playerMap.get(playerName);
+        System.out.println("Deck:"+player.getName());
+        player.showDeck();
     }
 
     void showAllPlayersDeck() {
         for (String key : this.playerMap.keySet()) {
-            System.out.println(this.playerMap.get(key));
+            Player player = this.playerMap.get(key);
+            System.out.println("Deck:"+player.getName());
+            player.showDeck();
         }
     }
 

@@ -11,7 +11,7 @@ public class SeMonsterGameTest {
         game.addPlayer("Player1", 3);
 
         assertNotNull(game.playerMap.get("Player1"));
-        assertEquals(3, game.playerMap.get("Player1").getMosterDeck().size());
+        assertEquals(3, game.playerMap.get("Player1").getMonsterDeck().size());
 
     }
 
